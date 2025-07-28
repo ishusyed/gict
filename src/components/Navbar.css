@@ -6,12 +6,14 @@
   right: 0;
   z-index: 100;
   width: 100%;
+  max-width: 100%;
   background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(30, 41, 59, 0.04);
   transition: background 0.3s ease;
   margin: 0;
   padding: 0;
   border: none;
+  overflow-x: hidden;
 }
 
 /* ========== Container ========== */
@@ -32,11 +34,19 @@
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(90deg, #60a5fa, #f472b6);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: aurora-move 6s linear infinite;
   margin: 0;
   padding: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.brand:hover {
+  opacity: 0.8;
 }
 
 /* ========== Nav Links (Desktop) ========== */
@@ -55,6 +65,11 @@
 
 .nav-item:hover {
   color: #2563eb;
+}
+
+.nav-item.active {
+  color: #2563eb;
+  font-weight: 600;
 }
 
 /* ========== Hamburger ========== */
@@ -93,6 +108,11 @@
 
 .mobile-item:hover {
   color: #2563eb;
+}
+
+.mobile-item.active {
+  color: #2563eb;
+  font-weight: 600;
 }
 
 /* ========== Media Queries ========== */

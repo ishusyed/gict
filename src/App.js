@@ -15,37 +15,37 @@ const Contact = lazy(() => import('./pages/Contact'));
 
 // Scroll to top on route change
 function ScrollToTop() {
-  const { pathname } = window.location;
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
+    const { pathname } = window.location;
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    return null;
 }
 
 function App() {
-  return (
-    <Router>
-      <ScrollToTop />
-      <div className="App">
-        <div className="content-wrapper">
-          <Navbar />
-          <main className="flex-1 px-4 py-6 sm:px-6 lg:px-8">
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem' }}>Loading...</div>}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
-            </Suspense>
-          </main>
-          <WhatsAppCallFloating />
-        </div>
-        <Footer />
-      </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <ScrollToTop />
+            <div className="App">
+                <div className="content-wrapper">
+                    <Navbar />
+                    <main className="main-content">
+                        <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem' }}>Loading...</div>}>
+                            <Routes>
+                                <Route path="/" element={<Home />} />
+                                <Route path="/about" element={<About />} />
+                                <Route path="/services" element={<Services />} />
+                                <Route path="/projects" element={<Projects />} />
+                                <Route path="/contact" element={<Contact />} />
+                            </Routes>
+                        </Suspense>
+                    </main>
+                    <WhatsAppCallFloating />
+                </div>
+                <Footer />
+            </div>
+        </Router>
+    );
 }
 
 export default App;
