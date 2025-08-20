@@ -73,9 +73,10 @@
 /* Navigation Links */
 .footer-nav-links {
   display: flex;
-  flex-wrap: wrap; /* Allows links to wrap if needed */
-  justify-content: center;
-  gap: 1.25rem;
+  /* This is the key change for mobile view */
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem; /* Reduced gap for a tighter vertical list */
   font-weight: 500;
 }
 
@@ -107,10 +108,11 @@
 
 /* === MODIFICATION: Single Media Query for Desktop Layout === */
 @media (min-width: 900px) {
-  .footer-container {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+  /* ... your other desktop styles are here ... */
+
+  .footer-nav-links {
+    flex-direction: row; /* Change back to horizontal for desktop */
+    gap: 1.25rem;
   }
 
   .footer-left {
