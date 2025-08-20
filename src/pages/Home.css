@@ -110,21 +110,19 @@
     transform: translateY(-4px);
 }
 
+/* MODIFICATION: Default mobile-first styles for card content */
 .home-square-card-content {
     max-width: 1200px;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 2.5rem 2rem;
+    flex-direction: column; /* Stack image and text vertically by default */
+    align-items: center;
+    padding: 0; /* Padding is moved to the text container */
 }
 
-.home-square-card.even .home-square-card-content {
-    flex-direction: row-reverse;
-}
-
+/* MODIFICATION: Styles for the image within the card */
 .home-square-card-img {
-    width: 50%;
+    width: 100%; /* Image takes full width on mobile */
     aspect-ratio: 16/9;
     height: auto;
     object-fit: cover;
@@ -135,9 +133,16 @@
     transition: transform 0.6s cubic-bezier(.4, 0, .2, 1), opacity 0.6s cubic-bezier(.4, 0, .2, 1);
 }
 
+/* MODIFICATION: New container for the text content */
+.home-square-card-text {
+    width: 100%;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
 .home-square-card-title {
     font-family: 'Montserrat', 'Poppins', sans-serif;
-    font-size: 1.65rem;
+    font-size: 1.5rem;
     font-weight: 900;
     letter-spacing: 0.03em;
     margin-bottom: 0.7rem;
@@ -149,7 +154,7 @@
 
 .home-square-card-desc {
     font-family: 'Inter', 'Poppins', sans-serif;
-    font-size: 1.02rem;
+    font-size: 1rem;
     font-weight: 400;
     color: #374151;
     line-height: 1.7;
@@ -159,7 +164,7 @@
     transition: transform 0.6s cubic-bezier(.4, 0, .2, 1);
 }
 
-/* Text colors for odd cards (hero section - transparent background) */
+/* Text colors for odd cards (transparent background) */
 .home-square-card:nth-child(odd) .home-square-card-title,
 .home-square-card:nth-child(odd) .home-square-card-desc {
     color: #000000 !important;
@@ -169,7 +174,7 @@
 /* Text colors for even cards (solid background) */
 .home-square-card:nth-child(even) .home-square-card-title,
 .home-square-card:nth-child(even) .home-square-card-desc {
-    color: #FFFFFF;
+    color: #0a0a0a; /* Adjusted for better readability on light background */
 }
 
 /* Dark mode support */
@@ -189,32 +194,34 @@
     }
 }
 
-/* Responsive Design */
-@media (max-width: 900px) {
+/* MODIFICATION: Media query for DESKTOP view (side-by-side layout) */
+@media (min-width: 901px) {
     .home-square-card-content {
-        flex-direction: column !important;
-        padding: 0;
+        flex-direction: row; /* Side-by-side layout on desktop */
+        align-items: flex-start;
+        padding: 2.5rem 2rem;
+    }
+
+    .home-square-card.even .home-square-card-content {
+        flex-direction: row-reverse; /* Reverse order for 'even' cards */
     }
 
     .home-square-card-img {
-        width: 100%;
-        margin: 0 auto;
+        width: 50%; /* Image takes half the width on desktop */
     }
 
     .home-square-card-text {
-        width: 100%;
-        padding: 2rem 1.5rem;
-        text-align: center;
+        width: 50%; /* Text takes the other half */
+        padding: 0 2rem;
+        text-align: left;
     }
-
+    
     .home-square-card-title {
-        font-size: 1.5rem;
-        text-align: center;
+        font-size: 1.65rem;
     }
 
     .home-square-card-desc {
-        font-size: 1rem;
-        text-align: center;
+        font-size: 1.02rem;
     }
 }
 
@@ -260,7 +267,7 @@
 
 .home-section-card {
     background: rgba(255, 255, 255, 0.95);
-    border-radius: 0 rem;
+    border-radius: 0;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
     padding: 2.5rem 2rem;
     margin: 0 auto;
